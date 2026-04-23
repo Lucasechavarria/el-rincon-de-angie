@@ -7,7 +7,7 @@ import SEOHead from '../components/seo/SEOHead';
 import { useGlobalStore } from '../stores/useGlobalStore';
 import GlassCard from '../components/ui/GlassCard';
 import PremiumButton from '../components/ui/PremiumButton';
-import { staggerContainer, fadeIn } from '../utils/animations';
+import { staggerContainer } from '../utils/animations';
 
 interface PurchasedBook {
   id: number;

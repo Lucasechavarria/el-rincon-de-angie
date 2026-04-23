@@ -23,6 +23,7 @@ const UserManagementTable: React.FC<UserManagementTableProps> = ({ token }) => {
 
     useEffect(() => {
         fetchUsers();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search]);
 
     const fetchUsers = async () => {

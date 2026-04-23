@@ -1,6 +1,8 @@
+/* eslint-disable import/first */
 import React, { useState } from 'react';
 import { Mail, ArrowRight, UserCheck, ShieldCheck, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import Modal from './Modal';
 import PremiumButton from './PremiumButton';
 

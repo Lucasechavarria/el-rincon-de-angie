@@ -1,8 +1,10 @@
+/* eslint-disable import/first */
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Book as BookIcon, Eye, Sparkles, ShoppingBag, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import SearchBar from '../components/search/SearchBar';
 import CategoryFilter from '../components/search/CategoryFilter';
 import SortDropdown from '../components/search/SortDropdown';

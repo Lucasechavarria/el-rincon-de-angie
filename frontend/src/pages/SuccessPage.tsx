@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { CheckCircle2, Mail, BookOpen, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';

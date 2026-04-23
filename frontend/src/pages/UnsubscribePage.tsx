@@ -14,11 +14,12 @@ const UnsubscribePage: React.FC = () => {
         if (token) {
             handleUnsubscribe();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
 
     const handleUnsubscribe = async () => {
         try {
-            const response = await axios.post(
+            await axios.post(
                 `http://localhost:8000/newsletter/unsubscribe/${token}`
             );
             setSuccess(true);

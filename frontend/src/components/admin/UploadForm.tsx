@@ -7,6 +7,7 @@ const UploadForm: React.FC = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [previewPercentage, setPreviewPercentage] = useState(10);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [publicationType, setPublicationType] = useState('story');
   const [contentFile, setContentFile] = useState<File | null>(null);
   const [coverImage, setCoverImage] = useState<File | null>(null);

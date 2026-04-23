@@ -1,5 +1,7 @@
+/* eslint-disable import/first */
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import { X } from 'lucide-react';
 import GlassCard from './GlassCard';
 

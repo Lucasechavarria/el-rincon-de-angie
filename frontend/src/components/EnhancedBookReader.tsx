@@ -28,6 +28,7 @@ export const EnhancedBookReader = () => {
     const [bookId, setBookId] = useState<number>(0);
     const [bookmarks, setBookmarks] = useState<number[]>([]);
     const [isFullscreen, setIsFullscreen] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [error, setError] = useState<string>('');
 
     const token = localStorage.getItem('access_token');
@@ -43,6 +44,7 @@ export const EnhancedBookReader = () => {
                 fetchProgress();
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id, token]);
 
     const fetchBook = async () => {
@@ -167,6 +169,7 @@ export const EnhancedBookReader = () => {
                 return;
             }
 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             if (!bookId) {
                 console.error("[CHECKOUT] Book ID is missing or invalid:", bookId);
                 alert("Error: No se pudo identificar el libro. Por favor recarga la página.");
@@ -204,12 +207,7 @@ export const EnhancedBookReader = () => {
     const handleZoomIn = () => updateZoom(settings.zoom + 0.1);
     const handleZoomOut = () => updateZoom(settings.zoom - 0.1);
 
-    const handlePageRestore = (page: number) => {
-        if (page >= 1 && page <= numPages && !isPageLocked(page)) {
-            setPageNumber(page);
-            updateLastPage(page);
-        }
-    };
+
 
     const pageVariants = {
         enter: (direction: number) => ({

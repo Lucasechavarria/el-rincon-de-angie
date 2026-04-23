@@ -23,6 +23,7 @@ const BookmarkButton: React.FC<BookmarkButtonProps> = ({ bookId, currentPage, th
 
     useEffect(() => {
         fetchBookmarks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [bookId]);
 
     useEffect(() => {

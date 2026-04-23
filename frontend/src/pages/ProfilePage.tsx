@@ -1,8 +1,10 @@
+/* eslint-disable import/first */
 import React, { useState, useEffect } from 'react';
 import { User, BookOpen, CreditCard, Loader2, Lock, Sparkles, ShieldCheck, Mail, Calendar, Edit3 } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import { AnimatedPage } from '../components/ui/AnimatedPage';
 import SEOHead from '../components/seo/SEOHead';
 import GlassCard from '../components/ui/GlassCard';
@@ -63,6 +65,7 @@ const ProfilePage: React.FC = () => {
       return;
     }
     fetchProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, navigate]);
 
   const fetchProfile = async () => {
@@ -113,6 +116,7 @@ const ProfilePage: React.FC = () => {
     } else if (activeTab === 'transactions' && transactions.length === 0) {
       fetchTransactions();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const textPrimary = theme === 'dark' ? 'text-white' : 'text-[#1B4D3E]';

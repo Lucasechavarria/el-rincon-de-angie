@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { Book, Feather, Mail, Lock, User, Sparkles } from 'lucide-react';
+import { Feather, Mail, Lock, User, Sparkles } from 'lucide-react';
 import { AnimatedPage } from '../components/ui/AnimatedPage';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { motion } from 'framer-motion';

@@ -1,6 +1,8 @@
-import React, { useState, Suspense, lazy } from 'react';
+/* eslint-disable import/first */
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
@@ -98,7 +100,6 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
 
   return (
     <QueryClientProvider client={queryClient}>

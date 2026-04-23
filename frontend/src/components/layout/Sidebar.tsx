@@ -1,13 +1,15 @@
+/* eslint-disable import/first */
 import React, { useState } from 'react';
-import { Book, Home, User, LogIn, Menu, X, Mail, Sun, Moon, Sparkles, Shield, Feather } from 'lucide-react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Book, Home, User, LogIn, Menu, X, Sun, Moon, Sparkles, Shield, Feather } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
+import { motion, AnimatePresence as AnimatePresenceOriginal } from 'framer-motion';
+const AnimatePresence = AnimatePresenceOriginal as any;
 import { useGlobalStore } from '../../stores/useGlobalStore';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useGlobalStore();
-  const location = useLocation();
+  
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 

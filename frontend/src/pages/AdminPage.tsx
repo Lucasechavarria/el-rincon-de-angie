@@ -48,6 +48,7 @@ const AdminPage: React.FC = () => {
     } else if (activeTab === 'analytics' && isAdmin) {
       fetchAnalyticsData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, period, isAdmin]);
 
   const fetchDashboardData = async () => {

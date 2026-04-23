@@ -24,6 +24,7 @@ const AdminNewsletterPanel: React.FC<AdminNewsletterPanelProps> = ({ token }) =>
         } else if (activeView === 'logs') {
             fetchEmailLogs();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeView]);
 
     const fetchSubscribers = async () => {
