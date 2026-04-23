@@ -20,3 +20,5 @@ resend>=0.7.0  # Email service (alternative: sendgrid)
 redis>=5.0.0  # Required for caching and rate limiting
 slowapi>=0.1.9 # For FastAPI rate limiting
 httpx>=0.25.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
