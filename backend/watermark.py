@@ -9,6 +9,7 @@ from reportlab.lib.pagesizes import letter
 import hashlib
 from datetime import datetime
 import os
+from typing import Optional
 
 
 def create_watermark(text: str, alpha: float = 0.15) -> PdfReader:

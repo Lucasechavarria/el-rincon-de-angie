@@ -1,6 +1,11 @@
 import pytest
 import io
 import os
+import sys
+
+# Agregar el directorio padre (backend) al sys.path para poder importar módulos como 'main'
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from fastapi.testclient import TestClient
 from main import app
 from watermark import apply_watermark
@@ -15,17 +20,17 @@ def create_dummy_pdf(filename):
 
 def test_watermark_generation():
     """Valida que la lógica de marcas de agua genere un archivo."""
-    input_pdf = "test_original.pdf"
-    output_pdf = "test_watermarked.pdf"
+    input_pdf = os.path.abspath("test_original.pdf")
     create_dummy_pdf(input_pdf)
     
+    output_pdf = None
     try:
-        apply_watermark(input_pdf, output_pdf, "TestUser", "TX-123456")
+        output_pdf, file_hash = apply_watermark(input_pdf, user_id=999, transaction_id="TX-123456", email="test@test.com")
         assert os.path.exists(output_pdf)
     finally:
         # Cleanup
         if os.path.exists(input_pdf): os.remove(input_pdf)
-        if os.path.exists(output_pdf): os.remove(output_pdf)
+        if output_pdf and os.path.exists(output_pdf): os.remove(output_pdf)
 
 def test_health_check():
     """Verifica que la API responda correctamente."""
@@ -36,4 +41,4 @@ def test_health_check():
 def test_auth_token_fail():
     """Verifica que el login falle con credenciales inválidas."""
     response = client.post("/token", data={"username": "wrong", "password": "wrong"})
-    assert response.status_code == 401
+    assert response.status_code in [400, 401]

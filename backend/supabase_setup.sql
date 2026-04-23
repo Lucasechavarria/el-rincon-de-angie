@@ -208,3 +208,25 @@ CREATE INDEX IF NOT EXISTS idx_subscriber_email ON "subscriber"(email);
 CREATE INDEX IF NOT EXISTS idx_analytics_metric_type ON "analytics"(metric_type);
 CREATE INDEX IF NOT EXISTS idx_analytics_event_date ON "analytics"(event_date);
 CREATE INDEX IF NOT EXISTS idx_emaillog_recipient ON "emaillog"(recipient);
+
+-- Habilitar Row Level Security (RLS)
+-- Nota: "user" es una palabra reservada, debe ir entre comillas dobles
+ALTER TABLE "user" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "userprofile" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "book" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "category" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "payment" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "download" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "downloadevent" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "readingprogress" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "bookmark" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "analytics" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "subscriber" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "authorinfo" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "timeline" ENABLE ROW LEVEL SECURITY;
+
+-- Políticas básicas (Permitir lectura pública de libros y categorías)
+CREATE POLICY "Permitir lectura pública de libros" ON "book" FOR SELECT USING (true);
+CREATE POLICY "Permitir lectura pública de categorías" ON "category" FOR SELECT USING (true);
+CREATE POLICY "Permitir lectura pública de información del autor" ON "authorinfo" FOR SELECT USING (true);
+CREATE POLICY "Permitir lectura pública de cronología" ON "timeline" FOR SELECT USING (true);
