@@ -1,0 +1,35 @@
+services:
+  # 1. El Backend (FastAPI)
+  - type: web
+    name: el-rincon-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: ENVIRONMENT
+        value: production
+      # Las contraseñas y claves (Supabase, Mercado Pago) NO se ponen aquí por seguridad.
+      # Se configuran directamente en el panel de Render en la sección de "Environment".
+
+  # 2. El Frontend (React SPA)
+  - type: web
+    name: el-rincon-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: el-rincon-backend
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
