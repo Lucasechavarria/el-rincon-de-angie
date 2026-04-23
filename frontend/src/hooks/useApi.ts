@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 // Books queries
 export const useBooks = (searchQuery = '', categoryId: number | null = null, sortBy = 'created_at', sortOrder = 'desc') => {
