@@ -1,0 +1,22 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+PyPDF2
+reportlab
+python-docx
+aiofiles
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+mercadopago
+supabase
+psycopg2-binary
+python-dotenv
+
+# New dependencies for platform enhancements
+pandas>=2.0.0  # For analytics and CSV export
+resend>=0.7.0  # Email service (alternative: sendgrid)
+redis>=5.0.0  # Required for caching and rate limiting
+slowapi>=0.1.9 # For FastAPI rate limiting
+httpx>=0.25.0

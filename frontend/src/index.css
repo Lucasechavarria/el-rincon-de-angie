@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #1B4D3E; /* Verde Inglés */
+  --color-secondary: #D4AF37; /* Dorado */
+  --color-background: #F5F5DC; /* Beige */
+  --color-text: #2C3E50;
+  --color-white: #FFFFFF;
+  --color-rich-black: #0A0A0A;
+  --color-deep-charcoal: #121212;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Premium Utilities */
+@layer components {
+  .glass-premium {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-xl;
+  }
+  
+  .dark .glass-premium {
+    @apply backdrop-blur-md bg-black/40 border border-white/10 shadow-2xl;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F9E2AF] to-[#B8860B];
+  }
+  
+  .border-gradient-gold {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-deep-charcoal), var(--color-deep-charcoal)) padding-box,
+                linear-gradient(to right, #D4AF37, #B8860B) border-box;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8860B;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}

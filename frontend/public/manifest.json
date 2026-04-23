@@ -1,0 +1,31 @@
+{
+    "short_name": "Rincón Angie",
+    "name": "El Rincón de Angie",
+    "description": "Historias que tocan el corazón. Descubre narrativas cautivadoras de romance, drama y emociones.",
+    "icons": [
+        {
+            "src": "logo-192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "logo-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#1B4D3E",
+    "background_color": "#F5F5DC",
+    "orientation": "portrait-primary",
+    "categories": [
+        "books",
+        "entertainment",
+        "lifestyle"
+    ],
+    "lang": "es"
+}
